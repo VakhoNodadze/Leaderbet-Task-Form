@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { withTheme } from 'styled-components'
+import Registration from './components/RegistrationForm'
 
-function App() {
+function App({ theme }) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{ width: '100%', height: '100vh', backgroundColor: theme.color.mainBg }}>
+
+        <div style={{ width: 1000, margin: 'auto', background: theme.color.formBg }}>
+          <div style={{ padding: '30px 50px' }}>
+            <h1 style={{ color: theme.color.white, fontSize: theme.color.heading, marginBottom: 10 }}>რეგისტრაცია</h1>
+            <p style={{ color: theme.color.yellow, fontSize: theme.fontSize.small }}>
+              სავალდებულოა ყველა ველი შეივსოს კორექტულად მხოლოდ ლათინური ასოებით და ციფრებით.
+            </p>
+            <p style={{ color: theme.color.white, fontSize: theme.fontSize.small }}>
+              <strong>ყურადღება:</strong> რეგისტრაციისას მითითებული პირადი მონაცემების უზუსტობის შემთხვევაში, კომპანია იტოვებს უფლებას შეგიზღუდოთ საიტით სარგებლობა!
+            </p>
+            <Registration />
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default withTheme(App)
